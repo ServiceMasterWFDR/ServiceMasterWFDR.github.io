@@ -104,6 +104,7 @@
 <!--############################################################################################################-->
 <!--############################################################################################################-->
 <!--############################################################################################################-->
+
 <body>
     <h1 style="display:inline-block;">
         <img src="images.png" width=auto height=auto alt="ServiceMaster Logo">
@@ -116,8 +117,45 @@
         </ul>
     </nav>
     <h1>Support</h1>
-    <p1>This is the Support Page</p1>
+    <br>
+    <br>
+    <p1>Issue</p1>
+    <br>
+    <select id="choice1">
+        <option value="option1">Computer</option>
+        <option value="option2">Wi-Fi</option>
+        <option value="option3">Phone</option>
+    </select>
+    <br>
+    <br>
+    <p1>Level of Severity</p1>
+    <br>
+    <select id="choice2">
+        <option value="choiceA">1</option>
+        <option value="choiceB">2</option>
+        <option value="choiceC">3</option>
+    </select>
+    <br> <br>
+    <button onclick="saveChoices()">Save Choices</button>
 
+    <script>
+        function saveChoices() {
+            let choice1 = document.getElementById("choice1").value;
+            let choice2 = document.getElementById("choice2").value;
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "save_choices.php", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onload = function () {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    alert("Choices saved!");
+                } else {
+                    alert("Error saving choices.");
+                }
+            };
+            xhr.send("&choice1=" + encodeURIComponent(choice1) + "&choice2=" + encodeURIComponent(choice2));
+        }
+    </script>
 
 
 
