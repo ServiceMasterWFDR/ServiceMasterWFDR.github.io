@@ -117,74 +117,7 @@
     </nav>
     <h1>Support</h1>
     <p1>This is the Support Page</p1>
-    <div class="dropdown">
-        <button class="dropbtn">Issue Experienced</button>
-        <div class="dropdown-content">
-          <a href="#" onclick="choice('comp')">Computer</a>
-          <a href="#" onclick="choice('comp_screen')">Computer Screen</a>
-          <a href="#" onclick="choice('wifi')">Wi-Fi</a>
-          <a href="#" onclick="choice('printer')">Printer</a>
-          <a href="#" onclick="choice('phone')">Phones</a>
-          <a href="#" onclick="choice('website')">A Website</a>
 
-
-        </div>
-      </div>
-      
-
-
-      <script>
-        function sendChoice(choice) {
-          var xhr = new XMLHttpRequest();
-          xhr.open("POST", "output.php", true); // Your PHP script
-          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-          xhr.onload = function() {
-            if (xhr.status >= 200 && xhr.status < 300) {
-              console.log("Choice sent successfully.");
-              // You can add a success message here
-            } else {
-              console.error("Error sending choice.");
-               // You can add an error message here.
-            }
-          };
-        
-          xhr.send("choice=" + encodeURIComponent(choice));
-        }
-        </script>
-
-
-
-
-
-
-
-
-
-    <br>
-    <br>
-    <div class="dropdown">
-        <button class="dropbtn">Issue Experienced</button>
-        <div class="dropdown-content">
-            <a href="user_choices.txt">Computer</a>
-            <a href="user_choices.txt">Computer Display</a>
-            <a href="user_choices.txt">Wi-Fi</a>
-            <a href="user_choices.txt">Printer</a>
-            <a href="user_choices.txt">Phones</a>
-            <a href="user_choices.txt">Website</a>
-        </div>
-    </div>
-    <br>
-    <br>
-    <div class="dropdown">
-        <button class="dropbtn">Level of Severity</button>
-        <div class="dropdown-content">
-            <a href="user_choices.txt">1- No Severity: Can Function Normally</a>
-            <a href="user_choices.txt">2- Some Severity: Can Funtion, But Seems Buggy</a>
-            <a href="user_choices.txt">3- Medium Severity: Can Function, But is Missing Functionality</a>
-            <a href="user_choices.txt">4- Abnormal Severity: Functions, But Most/All Functionality is Missing</a>
-            <a href="user_choices.txt">5- Sever Severity: System is Down</a>
-        </div>
-    </div>
 
 
 
