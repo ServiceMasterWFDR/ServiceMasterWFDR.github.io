@@ -136,7 +136,7 @@
       <script>
         function sendChoice(choice) {
           var xhr = new XMLHttpRequest();
-          xhr.open("POST", "save_choice.php", true); // Your PHP script
+          xhr.open("POST", "output.php", true); // Your PHP script
           xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
           xhr.onload = function() {
             if (xhr.status >= 200 && xhr.status < 300) {
