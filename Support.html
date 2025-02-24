@@ -115,6 +115,48 @@
     </nav>
     <h1>Support</h1>
     <p1>This is the Support Page</p1>
+    <div class="dropdown">
+        <button class="dropbtn">Issue Experienced</button>
+        <div class="dropdown-content">
+          <a href="#" onclick="sendChoice('comp')">Computer</a>
+          <a href="#" onclick="sendChoice('comp_screen')">Computer Screen</a>
+          <a href="#" onclick="sendChoice('wifi')">Wi-Fi</a>
+          <a href="#" onclick="sendChoice('printer')">Printer</a>
+          <a href="#" onclick="sendChoice('phone')">Phones</a>
+          <a href="#" onclick="sendChoice('website')">A Website</a>
+
+
+        </div>
+      </div>
+      
+
+
+      <script>
+        function sendChoice(choice) {
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "save_choice.php", true); // Your PHP script
+          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+          xhr.onload = function() {
+            if (xhr.status >= 200 && xhr.status < 300) {
+              console.log("Choice sent successfully.");
+              // You can add a success message here
+            } else {
+              console.error("Error sending choice.");
+               // You can add an error message here.
+            }
+          };
+        
+          xhr.send("choice=" + encodeURIComponent(choice));
+        }
+        </script>
+
+
+
+
+
+
+
+
 
     <br>
     <br>
