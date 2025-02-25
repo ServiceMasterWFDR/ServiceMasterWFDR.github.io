@@ -117,26 +117,21 @@
         </ul>
     </nav>
     <h1>Support</h1>
-    <br>
-    <br>
-    <p1>Issue</p1>
-    <br>
+    <h1>Support</h1>
+    <br><br>
+    <p1>Issue</p1><br>
     <select id="choice1">
-        <option value="option1">Computer</option>
-        <option value="option2">Wi-Fi</option>
-        <option value="option3">Phone</option>
-    </select>
-    <br>
-    <br>
-    <p1>Level of Severity</p1>
-    <br>
+        <option value="Computer">Computer</option>
+        <option value="Wi-Fi">Wi-Fi</option>
+        <option value="Phone">Phone</option>
+    </select><br><br>
+    <p1>Level of Severity</p1><br>
     <select id="choice2">
-        <option value="choiceA">1</option>
-        <option value="choiceB">2</option>
-        <option value="choiceC">3</option>
-    </select>
-    <br> <br>
-    <button onclick="saveChoices()">Save Choices</button>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select><br><br>
+    <button onclick="saveChoices()">Submit</button>
 
     <script>
         function saveChoices() {
@@ -146,16 +141,17 @@
             let xhr = new XMLHttpRequest();
             xhr.open("POST", "save_choices.php", true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr.onload = function () {
+            xhr.onload = function() {
                 if (xhr.status >= 200 && xhr.status < 300) {
-                    alert("Choices saved!");
+                    window.location.href = "selections.html"; // Redirect to selections.html
                 } else {
                     alert("Error saving choices.");
                 }
             };
-            xhr.send("&choice1=" + encodeURIComponent(choice1) + "&choice2=" + encodeURIComponent(choice2));
+            xhr.send("choice1=" + encodeURIComponent(choice1) + "&choice2=" + encodeURIComponent(choice2));
         }
     </script>
+    
 
 
 
