@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 
 
-$file_url = "user_choices.txt";
+$file_url = "ServiceMasterWFDR.github.io/user_choices.txt";
 
 $file_handle = fopen($file_url, 'r');
 
@@ -15,25 +15,22 @@ if ($file_handle) {
 
     while (($line = fgets($file_handle)) !== false) {
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $choice1 = $_POST["choice1"];
-            $choice2 = $_POST["choice2"];
 
-            $data = "Choice 1: " . $choice1 . "\nChoice 2: " . $choice2 . "\n";
+        $choice1 = $_POST["choice1"];
+        $choice2 = $_POST["choice2"];
 
-            $filename = "user_choices.txt";
-            file_put_contents($filename, $data, FILE_APPEND);
+        $data = "Choice 1: " . $choice1 . "\nChoice 2: " . $choice2 . "\n";
 
-            echo "Choices saved.";
-        } else {
-            echo "Invalid request.";
-        }
-        echo $line;
+        $filename = "user_choices.txt";
+        file_put_contents($filename, $data, FILE_APPEND);
+
+        echo "Choices saved.";
     }
+    echo $line;
+
 
     fclose($file_handle);
 } else {
 
     echo "Error opening file";
 }
-?>
