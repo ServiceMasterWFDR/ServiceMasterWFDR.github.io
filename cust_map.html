@@ -27,7 +27,6 @@
         }
 
         nav ul {
-            float: center;
             list-style: none;
             padding: 0;
             margin: 5px auto 0;
@@ -58,12 +57,40 @@
         .footer {
             margin-top: 5px;
         }
+
+        /* --- MODIFIED CSS FOR IFRAME HEIGHT --- */
+        .iframe-container {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            /* THIS IS THE KEY CHANGE. SET A LARGE FIXED HEIGHT, OR A VERY LARGE PERCENTAGE */
+            /* If you want it to truly "fill the page" without scrollbars, this needs to be large enough
+               for your longest possible sheet. This will cause the *main browser window* to scroll if the sheet is very long. */
+            height: 800px; /* Example: Try a large fixed height in pixels */
+            /* OR, if you want it to attempt to fill a large portion of the viewport */
+            /* height: 80vh; */ /* 80% of viewport height */
+            
+            padding-bottom: 0; /* Remove padding-bottom as height is now fixed/viewport based */
+            
+            overflow: hidden; /* Hide any overflow if content is larger than expected */
+            margin: 20px auto;
+            border: 1px solid #ccc;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; /* Make iframe fill its (now fixed/viewport-based) container */
+            border: 0;
+        }
     </style>
 </head>
 
 <body>
     <h1 style="display:inline-block;">
-        <img src="images.png" width=auto height=auto alt="ServiceMaster Logo">
+        <img src="images.png" width="auto" height="auto" alt="ServiceMaster Logo">
     </h1>
     <nav>
         <ul>
@@ -75,16 +102,18 @@
     </nav>
     <h1>Customer Map</h1>
     <br>
-    <p1>All information transmitted within this website is fully encrypted and secured using Google Cloud Services and
-        Github Cloud Transferring Services </p1>
+    <p>All information transmitted within this website is fully encrypted and secured using Google Cloud Services and Github Cloud Transferring Services</p>
     <br>
-    <iframe
-       src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTsEXcII-ap4i3yIQvH0Krl0ngBqxsoc42R8SIlq8Mbb_DHnuuRm8LpK4401dBM1A/pubhtml?gid=1292983450&amp;single=true&amp;widget=true&amp;headers=false"">
-        width= "500px" height="300px" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
+    <div class="iframe-container">
+        <iframe
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTsEXcII-ap4i3yIQvH0Krl0ngBqxsoc42R8SIlq8Mbb_DHnuuRm8LpK4401dBM1A/pubhtml?gid=1292983450&amp;single=true&amp;widget=true&amp;headers=false"
+            frameborder="0" marginheight="0" marginwidth="0" allowfullscreen>
+            Loading…
+        </iframe>
+    </div>
 
     <div class="footer">
-
         <p>Made by Brennan Waters 2024</p>
         <br>
         <p>ServiceMaster By WFDR</p>
